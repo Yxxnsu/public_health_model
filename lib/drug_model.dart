@@ -160,8 +160,8 @@ class RetrieveMdsupDtlInfo {
   final String cmnTmdcGdncCnte;
 
   factory RetrieveMdsupDtlInfo.fromJson(Map<String, dynamic> json) {
-    var decoded = base64.decode(json['DrugImage']);
-    var drugImage = utf8.decode(decoded);
+    var _byteImage = const Base64Decoder().convert(json['DrugImage']);
+    var drugImage = String.fromCharCodes(_byteImage);
     return RetrieveMdsupDtlInfo(
       drugCode: json["DrugCode"],
       mediPrdcNm: json["MediPrdcNm"],
