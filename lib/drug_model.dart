@@ -48,13 +48,13 @@ class ResultList {
   final List<RetrieveTreatmentInjectionInformationPersonDetailList> retrieveTreatmentInjectionInformationPersonDetailList;
 
   factory ResultList.fromJson(Map<String, dynamic> json) => ResultList(
-    idx: json["Idx"],
-    byungEuiwonYakGukMyung: json["ByungEuiwonYakGukMyung"],
-    jinRyoGaesiIl: json["JinRyoGaesiIl"],
-    jinRyoHyungTae: json["JinRyoHyungTae"],
-    bangMoonIpWonIlsoo: json["BangMoonIpWonIlsoo"],
-    cheoBangHoiSoo: json["CheoBangHoiSoo"],
-    tuYakYoYangHoiSoo: json["TuYakYoYangHoiSoo"],
+    idx: json["Idx"] ?? '',
+    byungEuiwonYakGukMyung: json["ByungEuiwonYakGukMyung"] ?? '',
+    jinRyoGaesiIl: json["JinRyoGaesiIl"] ?? '',
+    jinRyoHyungTae: json["JinRyoHyungTae"] ?? '',
+    bangMoonIpWonIlsoo: json["BangMoonIpWonIlsoo"] ?? '',
+    cheoBangHoiSoo: json["CheoBangHoiSoo"] ?? '',
+    tuYakYoYangHoiSoo: json["TuYakYoYangHoiSoo"] ?? '',
     retrieveTreatmentInjectionInformationPersonDetailList: List<RetrieveTreatmentInjectionInformationPersonDetailList>.from(json["RetrieveTreatmentInjectionInformationPersonDetailList"].map((x) => RetrieveTreatmentInjectionInformationPersonDetailList.fromJson(x))),
   );
 
@@ -95,15 +95,15 @@ class RetrieveTreatmentInjectionInformationPersonDetailList {
   final List<RetrieveMdsupDtlInfo> retrieveMdsupDtlInfo;
 
   factory RetrieveTreatmentInjectionInformationPersonDetailList.fromJson(Map<String, dynamic> json) => RetrieveTreatmentInjectionInformationPersonDetailList(
-    idx: json["Idx"],
-    jinRyoChoBangIlja: json["JinRyoChoBangIlja"],
-    jinRyoHyungTae: json["JinRyoHyungTae"],
-    choBangHoetSoo: json["ChoBangHoetSoo"],
-    choBangYakPumMyung: json["ChoBangYakPumMyung"],
-    choBangYakPumHyoneung: json["ChoBangYakPumHyoneung"],
-    tuyakIlSoo: json["TuyakIlSoo"],
-    drugCode: json["DrugCode"],
-    nameAddr: json["NameAddr"],
+    idx: json["Idx"] ?? '',
+    jinRyoChoBangIlja: json["JinRyoChoBangIlja"] ?? '',
+    jinRyoHyungTae: json["JinRyoHyungTae"] ?? '',
+    choBangHoetSoo: json["ChoBangHoetSoo"] ?? '',
+    choBangYakPumMyung: json["ChoBangYakPumMyung"] ?? '',
+    choBangYakPumHyoneung: json["ChoBangYakPumHyoneung"] ?? '',
+    tuyakIlSoo: json["TuyakIlSoo"] ?? '',
+    drugCode: json["DrugCode"] ?? '',
+    nameAddr: json["NameAddr"] ?? '',
     retrieveMdsupDtlInfo: List<RetrieveMdsupDtlInfo>.from(json["RetrieveMdsupDtlInfo"].map((x)=> RetrieveMdsupDtlInfo.fromJson(x))),
   );
 
@@ -169,23 +169,23 @@ class RetrieveMdsupDtlInfo {
     // var output = Uint8List.fromList(drugImage.codeUnits);
 
     return RetrieveMdsupDtlInfo(
-      drugCode: json["DrugCode"],
-      mediPrdcNm: json["MediPrdcNm"],
-      drugImage: json["DrugImage"],
-      cmpnInfo: json["CmpnInfo"],
-      tmsgGnlSpcd: json["TmsgGnlSpcd"],
-      snglCmtnYn: json["SnglCmtnYn"],
-      upsoName: json["UpsoName"],
-      upso1: json["Upso1"],
-      fomlCdXplnCnte: json["FomlCdXplnCnte"],
-      mdctPathXplnCnte: json["MdctPathXplnCnte"],
-      mohwClsfNoXplnCnte: json["MohwClsfNoXplnCnte"],
-      atcInfo: json["AtcInfo"],
-      kpicInfo: json["KpicInfo"],
-      efftEftCnte: json["EfftEftCnte"],
-      usagCpctCnte: json["UsagCpctCnte"],
-      useAtntMttCnte: json["UseAtntMttCnte"],
-      cmnTmdcGdncCnte: json["CmnTmdcGdncCnte"],
+      drugCode: json["DrugCode"] ?? '',
+      mediPrdcNm: json["MediPrdcNm"] ?? '',
+      drugImage: json["DrugImage"] ?? '',
+      cmpnInfo: json["CmpnInfo"] ?? '',
+      tmsgGnlSpcd: json["TmsgGnlSpcd"] ?? '',
+      snglCmtnYn: json["SnglCmtnYn"] ?? '',  
+      upsoName: json["UpsoName"] ?? '',
+      upso1: json["Upso1"] ?? '',
+      fomlCdXplnCnte: json["FomlCdXplnCnte"] ?? '',
+      mdctPathXplnCnte: json["MdctPathXplnCnte"] ?? '',
+      mohwClsfNoXplnCnte: json["MohwClsfNoXplnCnte"] ?? '',
+      atcInfo: json["AtcInfo"] ?? '',
+      kpicInfo: json["KpicInfo"] ?? '',
+      efftEftCnte: json["EfftEftCnte"] ?? '',
+      usagCpctCnte: json["UsagCpctCnte"] ?? '',
+      useAtntMttCnte: json["UseAtntMttCnte"] ?? '',
+      cmnTmdcGdncCnte: json["CmnTmdcGdncCnte"] ?? '',
     );
   }
 
