@@ -161,9 +161,9 @@ class RetrieveMdsupDtlInfo {
 
   factory RetrieveMdsupDtlInfo.fromJson(Map<String, dynamic> json) {
 
-    // var _byteImage = const Base64Decoder().convert(json['DrugImage']);
+    var _byteImage = const Base64Decoder().convert(json['DrugImage']);
     // // base64.decode(json['DrugImage']);
-    // var drugImage = String.fromCharCodes(_byteImage);
+    var drugImage = String.fromCharCodes(_byteImage);
     
     //! Uint8List 변환
     // var output = Uint8List.fromList(drugImage.codeUnits);
@@ -171,7 +171,7 @@ class RetrieveMdsupDtlInfo {
     return RetrieveMdsupDtlInfo(
       drugCode: json["DrugCode"] ?? '',
       mediPrdcNm: json["MediPrdcNm"] ?? '',
-      drugImage: json["DrugImage"] ?? '',
+      drugImage: drugImage,
       cmpnInfo: json["CmpnInfo"] ?? '',
       tmsgGnlSpcd: json["TmsgGnlSpcd"] ?? '',
       snglCmtnYn: json["SnglCmtnYn"] ?? '',  
