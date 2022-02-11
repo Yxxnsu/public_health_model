@@ -92,7 +92,7 @@ class RetrieveTreatmentInjectionInformationPersonDetailList {
   final String tuyakIlSoo;
   final String drugCode;
   final String nameAddr;
-  final List<RetrieveMdsupDtlInfo> retrieveMdsupDtlInfo;
+  final RetrieveMdsupDtlInfo retrieveMdsupDtlInfo;
 
   factory RetrieveTreatmentInjectionInformationPersonDetailList.fromJson(Map<String, dynamic> json) => RetrieveTreatmentInjectionInformationPersonDetailList(
     idx: json["Idx"] ?? '',
@@ -104,7 +104,7 @@ class RetrieveTreatmentInjectionInformationPersonDetailList {
     tuyakIlSoo: json["TuyakIlSoo"] ?? '',
     drugCode: json["DrugCode"] ?? '',
     nameAddr: json["NameAddr"] ?? '',
-    retrieveMdsupDtlInfo: List<RetrieveMdsupDtlInfo>.from(json["RetrieveMdsupDtlInfo"].map((x)=> RetrieveMdsupDtlInfo.fromJson(x))),
+    retrieveMdsupDtlInfo: RetrieveMdsupDtlInfo.fromJson(json["RetrieveMdsupDtlInfo"]),
   );
 
   Map<String, dynamic> toMap() => {
@@ -117,7 +117,7 @@ class RetrieveTreatmentInjectionInformationPersonDetailList {
     "TuyakIlSoo": tuyakIlSoo,
     "DrugCode": drugCode,
     "NameAddr": nameAddr,
-    "RetrieveMdsupDtlInfo": List<dynamic>.from(retrieveMdsupDtlInfo.map((e) => e.toMap())),
+    "RetrieveMdsupDtlInfo": retrieveMdsupDtlInfo.toMap(),
   };
 }
 
