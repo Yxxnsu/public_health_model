@@ -19,6 +19,14 @@ class DrugModel {
     resultList: List<ResultList>.from(json["ResultList"].map((x) => ResultList.fromJson(x))),
   );
 
+  factory DrugModel.from(Map<String, dynamic> json) => DrugModel(
+    status: json["Status"],
+    statusSeq: json["StatusSeq"],
+    message: json["Message"],
+    resultList: List<ResultList>.from(json["ResultList"].map((x) => ResultList.fromJson(x))),
+  );
+
+
   Map<String, dynamic> toMap() => {
     "Status": status,
     "StatusSeq": statusSeq,
@@ -160,18 +168,21 @@ class RetrieveMdsupDtlInfo {
   final String cmnTmdcGdncCnte;
 
   factory RetrieveMdsupDtlInfo.fromJson(Map<String, dynamic> json) {
-
-    var _byteImage = const Base64Decoder().convert(json['DrugImage']);
-    // // base64.decode(json['DrugImage']);
-    var drugImage = String.fromCharCodes(_byteImage);
     
+    var drugImage = '';
+    if(json["DrugImage"] is! String){
+       var _byteImage = const Base64Decoder().convert(json['DrugImage']);
+      // // base64.decode(json['DrugImage']);
+      drugImage = String.fromCharCodes(_byteImage);
+    } 
+
     //! Uint8List 변환
     // var output = Uint8List.fromList(drugImage.codeUnits);
 
     return RetrieveMdsupDtlInfo(
       drugCode: json["DrugCode"] ?? '',
       mediPrdcNm: json["MediPrdcNm"] ?? '',
-      drugImage: drugImage,
+      drugImage: json["DrugImage"] is String ? json["DrugImage"] : drugImage,
       cmpnInfo: json["CmpnInfo"] ?? '',
       tmsgGnlSpcd: json["TmsgGnlSpcd"] ?? '',
       snglCmtnYn: json["SnglCmtnYn"] ?? '',  
@@ -208,4 +219,6 @@ class RetrieveMdsupDtlInfo {
     "UseAtntMttCnte": useAtntMttCnte,
     "CmnTmdcGdncCnte": cmnTmdcGdncCnte,
   };
+
+  
 }
