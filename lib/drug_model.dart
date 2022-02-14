@@ -2,36 +2,32 @@ import 'dart:convert';
 
 class DrugModel {
   DrugModel({
-    required  this.status,
-    required  this.statusSeq,
-    required  this.message,
-    required  this.resultList,
+    required this.status,
+    required this.statusSeq,
+    required this.message,
+    required this.resultList,
   });
   final String status;
   final int statusSeq;
   final String message;
-  final List<ResultList> resultList;
+  final List<ResultList>? resultList;
 
   factory DrugModel.fromJson(Map<String, dynamic> json) => DrugModel(
     status: json["Status"],
     statusSeq: json["StatusSeq"],
     message: json["Message"],
-    resultList: List<ResultList>.from(json["ResultList"].map((x) => ResultList.fromJson(x))),
+    resultList: json['ResultList'] == null 
+      ? null
+      : List<ResultList>.from(json["ResultList"].map((x) => ResultList.fromJson(x)))
   );
-
-  factory DrugModel.from(Map<String, dynamic> json) => DrugModel(
-    status: json["Status"],
-    statusSeq: json["StatusSeq"],
-    message: json["Message"],
-    resultList: List<ResultList>.from(json["ResultList"].map((x) => ResultList.fromJson(x))),
-  );
-
 
   Map<String, dynamic> toMap() => {
     "Status": status,
     "StatusSeq": statusSeq,
     "Message": message,
-    "ResultList": List<dynamic>.from(resultList.map((x) => x.toMap())),
+    "ResultList": resultList == null
+      ? null
+      : List<dynamic>.from(resultList!.map((x) => x.toMap())),
   };
 }
 
@@ -53,7 +49,7 @@ class ResultList {
   final String bangMoonIpWonIlsoo;
   final String cheoBangHoiSoo;
   final String tuYakYoYangHoiSoo;
-  final List<RetrieveTreatmentInjectionInformationPersonDetailList> retrieveTreatmentInjectionInformationPersonDetailList;
+  final List<RetrieveTreatmentInjectionInformationPersonDetailList>? retrieveTreatmentInjectionInformationPersonDetailList;
 
   factory ResultList.fromJson(Map<String, dynamic> json) => ResultList(
     idx: json["Idx"] ?? '',
@@ -63,7 +59,9 @@ class ResultList {
     bangMoonIpWonIlsoo: json["BangMoonIpWonIlsoo"] ?? '',
     cheoBangHoiSoo: json["CheoBangHoiSoo"] ?? '',
     tuYakYoYangHoiSoo: json["TuYakYoYangHoiSoo"] ?? '',
-    retrieveTreatmentInjectionInformationPersonDetailList: List<RetrieveTreatmentInjectionInformationPersonDetailList>.from(json["RetrieveTreatmentInjectionInformationPersonDetailList"].map((x) => RetrieveTreatmentInjectionInformationPersonDetailList.fromJson(x))),
+    retrieveTreatmentInjectionInformationPersonDetailList: json["RetrieveTreatmentInjectionInformationPersonDetailList"] == null
+      ? null
+      : List<RetrieveTreatmentInjectionInformationPersonDetailList>.from(json["RetrieveTreatmentInjectionInformationPersonDetailList"].map((x) => RetrieveTreatmentInjectionInformationPersonDetailList.fromJson(x))),
   );
 
   Map<String, dynamic> toMap() => {
@@ -74,7 +72,9 @@ class ResultList {
     "BangMoonIpWonIlsoo": bangMoonIpWonIlsoo,
     "CheoBangHoiSoo": cheoBangHoiSoo,
     "TuYakYoYangHoiSoo": tuYakYoYangHoiSoo,
-    "RetrieveTreatmentInjectionInformationPersonDetailList": List<dynamic>.from(retrieveTreatmentInjectionInformationPersonDetailList.map((x) => x.toMap())),
+    "RetrieveTreatmentInjectionInformationPersonDetailList": retrieveTreatmentInjectionInformationPersonDetailList == null
+      ? null
+      : List<dynamic>.from(retrieveTreatmentInjectionInformationPersonDetailList!.map((x) => x.toMap())),
   };
 }
 
@@ -100,7 +100,7 @@ class RetrieveTreatmentInjectionInformationPersonDetailList {
   final String tuyakIlSoo;
   final String drugCode;
   final String nameAddr;
-  final RetrieveMdsupDtlInfo retrieveMdsupDtlInfo;
+  final RetrieveMdsupDtlInfo? retrieveMdsupDtlInfo;
 
   factory RetrieveTreatmentInjectionInformationPersonDetailList.fromJson(Map<String, dynamic> json) => RetrieveTreatmentInjectionInformationPersonDetailList(
     idx: json["Idx"] ?? '',
@@ -112,7 +112,9 @@ class RetrieveTreatmentInjectionInformationPersonDetailList {
     tuyakIlSoo: json["TuyakIlSoo"] ?? '',
     drugCode: json["DrugCode"] ?? '',
     nameAddr: json["NameAddr"] ?? '',
-    retrieveMdsupDtlInfo: RetrieveMdsupDtlInfo.fromJson(json["RetrieveMdsupDtlInfo"]),
+    retrieveMdsupDtlInfo: json["RetrieveMdsupDtlInfo"] == null 
+      ? null
+      : RetrieveMdsupDtlInfo.fromJson(json["RetrieveMdsupDtlInfo"]),
   );
 
   Map<String, dynamic> toMap() => {
@@ -125,7 +127,9 @@ class RetrieveTreatmentInjectionInformationPersonDetailList {
     "TuyakIlSoo": tuyakIlSoo,
     "DrugCode": drugCode,
     "NameAddr": nameAddr,
-    "RetrieveMdsupDtlInfo": retrieveMdsupDtlInfo.toMap(),
+    "RetrieveMdsupDtlInfo": retrieveMdsupDtlInfo == null 
+      ? null
+      : retrieveMdsupDtlInfo!.toMap(),
   };
 }
 

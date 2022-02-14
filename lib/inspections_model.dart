@@ -8,20 +8,24 @@ class InspectionModel {
   final String status;
   final int statusSeq;
   final String message;
-  final List<ResultList> resultList;
+  final List<ResultList>? resultList;
 
   factory InspectionModel.fromJson(Map<String, dynamic> json) => InspectionModel(
     status: json["Status"],
     statusSeq: json["StatusSeq"],
     message: json["Message"],
-    resultList: List<ResultList>.from(json["ResultList"].map((x) => ResultList.fromJson(x))),
+    resultList: json["ResultList"] == null
+    ? null
+    : List<ResultList>.from(json["ResultList"].map((x) => ResultList.fromJson(x))),
   );
 
   Map<String, dynamic> toMap() => {
-      "Status": status,
-      "StatusSeq": statusSeq,
-      "Message": message,
-      "ResultList": List<dynamic>.from(resultList.map((x) => x.toMap())),
+    "Status": status,
+    "StatusSeq": statusSeq,
+    "Message": message,
+    "ResultList": resultList == null
+    ? null
+    : List<dynamic>.from(resultList!.map((x) => x.toMap())),
   };
 }
 
@@ -39,7 +43,7 @@ class ResultList {
   final String code;
   final String location;
   final String description;
-  final List<Inspection> inspections;
+  final List<Inspection>? inspections;
 
   factory ResultList.fromJson(Map<String, dynamic> json) => ResultList(
     year: json["Year"] ?? '',
@@ -47,16 +51,20 @@ class ResultList {
     code: json["Code"] ?? '',
     location: json["Location"] ?? '',
     description: json["Description"] ?? '',
-    inspections: List<Inspection>.from(json["Inspections"].map((x) => Inspection.fromJson(x))),
+    inspections: json["Inspections"] == null
+    ? null
+    : List<Inspection>.from(json["Inspections"].map((x) => Inspection.fromJson(x))),
   );
 
   Map<String, dynamic> toMap() => {
-      "Year": year,
-      "CheckUpDate": checkUpDate,
-      "Code": code,
-      "Location": location,
-      "Description": description,
-      "Inspections": List<dynamic>.from(inspections.map((x) => x.toMap())),
+    "Year": year,
+    "CheckUpDate": checkUpDate,
+    "Code": code,
+    "Location": location,
+    "Description": description,
+    "Inspections": inspections == null
+      ? null
+      :List<dynamic>.from(inspections!.map((x) => x.toMap())),
   };
 }
 
@@ -66,16 +74,20 @@ class Inspection {
     required this.illnesses,
   });
   final String gubun;
-  final List<Illness> illnesses;
+  final List<Illness>? illnesses;
 
   factory Inspection.fromJson(Map<String, dynamic> json) => Inspection(
     gubun: json["Gubun"] ?? '',
-    illnesses: List<Illness>.from(json["Illnesses"].map((x) => Illness.fromJson(x))),
+    illnesses: json["Illnesses"] == null
+    ? null
+    : List<Illness>.from(json["Illnesses"].map((x) => Illness.fromJson(x))),
   );
 
   Map<String, dynamic> toMap() => {
     "Gubun": gubun,
-    "Illnesses": List<dynamic>.from(illnesses.map((x) => x.toMap())),
+    "Illnesses": illnesses == null 
+    ? null
+    : List<dynamic>.from(illnesses!.map((x) => x.toMap())),
   };
 }
 
@@ -85,15 +97,19 @@ class Illness {
     required this.items,
   });
   final String name;
-  final List<Item> items;
+  final List<Item>? items;
 
   factory Illness.fromJson(Map<String, dynamic> json) => Illness(
     name: json["Name"] ?? '',
-    items: List<Item>.from(json["Items"].map((x) => Item.fromJson(x))),
+    items: json["Items"] == null
+    ? null
+    : List<Item>.from(json["Items"].map((x) => Item.fromJson(x))),
   );
   Map<String, dynamic> toMap() => {
     "Name": name,
-    "Items": List<dynamic>.from(items.map((x) => x.toMap())),
+    "Items": items == null
+    ? null
+    : List<dynamic>.from(items!.map((x) => x.toMap())),
   };
 }
 
@@ -105,18 +121,22 @@ class Item {
   });
   final String name;
   final String value;
-  final List<ItemReference> itemReferences;
+  final List<ItemReference>? itemReferences;
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
     name: json["Name"] ?? '',
     value: json["Value"] ?? '',
-    itemReferences: List<ItemReference>.from(json["ItemReferences"].map((x) => ItemReference.fromJson(x))),
+    itemReferences: json["ItemReferences"]== null
+    ? null
+    : List<ItemReference>.from(json["ItemReferences"].map((x) => ItemReference.fromJson(x))),
   );
 
   Map<String, dynamic> toMap() => {
     "Name": name,
     "Value": value,
-    "ItemReferences": List<dynamic>.from(itemReferences.map((x) => x.toMap())),
+    "ItemReferences": itemReferences == null
+    ? null
+    : List<dynamic>.from(itemReferences!.map((x) => x.toMap())),
   };
 }
 

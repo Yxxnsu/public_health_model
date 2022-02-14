@@ -94,7 +94,7 @@ class _ModelTestingScreenState extends State<ModelTestingScreen> {
                     builder: (context, snapshot){
                       return snapshot.hasData 
                         ? Text(
-                          snapshot.data!.resultList[0].retrieveTreatmentInjectionInformationPersonDetailList[1].jinRyoChoBangIlja,
+                          snapshot.data!.resultList![0].retrieveTreatmentInjectionInformationPersonDetailList![1].jinRyoChoBangIlja,
                           style: Theme.of(context).textTheme.bodyText1!.copyWith(
                             color: Theme.of(context).primaryColor
                             ),
