@@ -42,11 +42,11 @@ class ResultList {
   final List<Inspection> inspections;
 
   factory ResultList.fromJson(Map<String, dynamic> json) => ResultList(
-    year: json["Year"],
-    checkUpDate: json["CheckUpDate"],
-    code: json["Code"],
-    location: json["Location"],
-    description: json["Description"],
+    year: json["Year"] ?? '',
+    checkUpDate: json["CheckUpDate"] ?? '',
+    code: json["Code"] ?? '',
+    location: json["Location"] ?? '',
+    description: json["Description"] ?? '',
     inspections: List<Inspection>.from(json["Inspections"].map((x) => Inspection.fromJson(x))),
   );
 
@@ -69,7 +69,7 @@ class Inspection {
   final List<Illness> illnesses;
 
   factory Inspection.fromJson(Map<String, dynamic> json) => Inspection(
-    gubun: json["Gubun"],
+    gubun: json["Gubun"] ?? '',
     illnesses: List<Illness>.from(json["Illnesses"].map((x) => Illness.fromJson(x))),
   );
 
@@ -88,7 +88,7 @@ class Illness {
   final List<Item> items;
 
   factory Illness.fromJson(Map<String, dynamic> json) => Illness(
-    name: json["Name"],
+    name: json["Name"] ?? '',
     items: List<Item>.from(json["Items"].map((x) => Item.fromJson(x))),
   );
   Map<String, dynamic> toMap() => {
@@ -108,8 +108,8 @@ class Item {
   final List<ItemReference> itemReferences;
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
-    name: json["Name"],
-    value: json["Value"],
+    name: json["Name"] ?? '',
+    value: json["Value"] ?? '',
     itemReferences: List<ItemReference>.from(json["ItemReferences"].map((x) => ItemReference.fromJson(x))),
   );
 
@@ -129,8 +129,8 @@ class ItemReference {
   String value;
 
   factory ItemReference.fromJson(Map<String, dynamic> json) => ItemReference(
-    name: json["Name"],
-    value: json["Value"],
+    name: json["Name"] ?? '',
+    value: json["Value"] ?? '',
   );
   
   Map<String, dynamic> toMap() => {
