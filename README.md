@@ -1,4 +1,4 @@
-# TilkoPlugin Pakage
+# TilkoPlugin을 위한 Pakage
 **Tilko에서 제공하는 "보안 모듈 스크래핑 API 서비스"를 Flutter에서 사용할 수 있도록 도와주는 플러그인을 위한 help pakage**
 - 관련된 API 사용을 위한, API reponse parsing 도와주는 기능 제공
 
