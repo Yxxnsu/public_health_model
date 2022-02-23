@@ -11,7 +11,6 @@
 
 ## Install
 
-<br>
 
 #### 1) Dependency 추가  
 pubspec.yaml의 dependencies에 작성  
@@ -19,8 +18,6 @@ pubspec.yaml의 dependencies에 작성
 dependencies:
   public_health_model: ^{latest version}
 ```
-
-<br>
 
 
 #### 2) Dart code에 import
@@ -32,7 +29,6 @@ import 'package:public_health_model/public_health_model.dart
 
 ## Usage  
 
-<br>
 
 ``` dart
 InspectionModel? inspectionModel;
