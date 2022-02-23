@@ -43,6 +43,6 @@ Map<String, dynamic> medicalData = await TilkoPlugin.callMedicalTreatment(apiKey
 inspectionModel = InspectionModel.fromJson(healthData);
 drugModel = DrugModel.fromJson(medicalData);
 ```
-> insepctionModel에 fromJson 함수를 사용해서 UI에 데이터를 뿌려줄 수 있다.
+> insepctionModel에 fromJson 함수를 사용해서 UI에 데이터를 뿌려줄 수 있다.  
 > drugModel에 fromJson 함수를 사용해서 UI에 데이터를 뿌려줄 수 있다.
 
