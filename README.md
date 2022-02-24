@@ -34,7 +34,7 @@ import 'package:public_health_model/public_health_model.dart
 InspectionModel? inspectionModel;
 DrugModel? drugModel;
 
-Map<String, dynamic> healthData = await TilkoPlugincallHealthCheckInfo(apiKey, filePath, certPass);
+Map<String, dynamic> healthData = await TilkoPlugin.callHealthCheckInfo(apiKey, filePath, certPass);
 Map<String, dynamic> medicalData = await TilkoPlugin.callMedicalTreatment(apiKey, filePath, certPass);
 inspectionModel = InspectionModel.fromJson(healthData);
 drugModel = DrugModel.fromJson(medicalData);
